@@ -1,0 +1,6 @@
+uploads/
+logs/
+backups/
+__pycache__/
+*.pyc
+.venv/
