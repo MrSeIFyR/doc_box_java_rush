@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DocBox — загруженные документы</h1>
+      <nav style="margin-bottom: 20px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <a href="/" class="link-btn">Загрузить</a>
+        <span style="color: #ccc;">·</span>
+        <a href="/documents-list" class="link-btn link-btn-outline">Документы</a>
+      </nav>
+    <form action="/documents-filter", method="post">
+        <input name="q" />
+        <button>Поиск</button>
+    </form>
+    <table class="doc-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Имя файла</th>
+                    <th>Оригинальное имя</th>
+                    <th>Размер (КБ)</th>
+                    <th>Дата загрузки</th>
+                    <th>Тип</th>
+                    <th>Удалить</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in documents %}
+                <tr>
+                    <td>{{ d.id }}</td>
+                    <td><a href="{{ url_for('serve_document', name=d.stored_name) }}" target="_blank"> {{ d.stored_name}} </a></td>
+                    <td>{{ d.original_name }}</td>
+                    <td class="num">{{ d.size_kb }}</td>
+                    <td>{{ d.upload_at.strftime('%d.%m.%Y %H:%M') }}</td>
+                    <td>{{ d.extension }}</td>
+                    <td>
+                        <form action="/delete/{{ d.id }}" method="post">
+                            <button>Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</body>
+</html>

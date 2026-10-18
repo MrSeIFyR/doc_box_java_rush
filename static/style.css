@@ -3,3 +3,91 @@ body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; 
 .hint { color: #666; font-size: .9rem; }
 form { display: flex; gap: .5rem; align-items: center; margin: 1rem 0; }
 button { cursor: pointer; padding: .4rem .9rem; border-radius: 4px; border: 1px solid #3b82f6; background: #3b82f6; color: #fff; }
+
+body { max-width: 1000px; }
+nav { margin-bottom: 1rem; }
+.empty { color: #666; font-style: italic; padding: 2rem 0; text-align: center; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: .5rem .75rem; border-bottom: 1px solid #e5e7eb; text-align: left; }
+th { background: #f3f4f6; font-weight: 600; }
+tbody tr:hover { background: #fafafa; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td a { word-break: break-all; }
+
+button.danger { border-color: #dc2626; background: #fff; color: #dc2626; }
+button.danger:hover { background: #dc2626; color: #fff; }
+
+.doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.doc-table thead tr {
+    background-color: #f8f9fa;
+    color: #333;
+    text-align: left;
+}
+
+.doc-table th,
+.doc-table td {
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+}
+
+/* Полосатые строки */
+.doc-table tbody tr:nth-of-type(even) {
+    background-color: #fafafa;
+}
+
+.doc-table tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* Выравнивание и стиль для чисел */
+.num {
+    text-align: right;
+    font-feature-settings: "tnum"; /* табличные цифры, если шрифт поддерживает */
+    color: #2c3e50;
+}
+
+/* Чуть лучше для имени файла */
+.file-name {
+    word-break: break-word;
+    max-width: 300px;
+}
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #333;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  transition: all 0.2s;
+}
+
+.link-btn:hover {
+  background-color: #e2e6ea;
+  border-color: #ced4da;
+  color: #222;
+}
+
+.link-btn-outline {
+  background-color: transparent;
+  border-color: #dee2e6;
+  color: #495057;
+}
+
+.link-btn-outline:hover {
+  border-color: #adb5bd;
+  color: #212529;
+}

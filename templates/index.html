@@ -7,13 +7,25 @@
 </head>
 <body>
   <h1>DocBox — загрузка документа</h1>
+
+  <!-- Навигация -->
+  <nav style="margin-bottom: 20px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+    <a href="/" class="link-btn">Загрузить</a>
+    <span style="color: #ccc;">·</span>
+    <a href="/documents-list" class="link-btn link-btn-outline">Документы</a>
+  </nav>
+
   {% with messages = get_flashed_messages() %}
-    {% for m in messages %}<p class="flash">{{ m }}</p>{% endfor %}
+    {% for m in messages %}
+      <p class="flash">{{ m }}</p>
+    {% endfor %}
   {% endwith %}
+
   <form action="/upload" method="post" enctype="multipart/form-data">
     <input type="file" name="file" required>
     <button type="submit">Загрузить</button>
   </form>
+
   <p class="hint">Допустимые форматы: pdf, txt, md, docx</p>
 </body>
 </html>
