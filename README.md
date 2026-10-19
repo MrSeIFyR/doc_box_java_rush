@@ -68,6 +68,7 @@ docker compose up --build
 | /documents/<name> |	GET | 	Скачивание файла по сохранённому имени.                                                                                                                         |
 | /delete/<id> |	POST | 	Удаление документа: удаляется запись из БД и файл с диска. Все действия логируются.                                                                             |
 | /documents-filter |	POST | 	Отправка поискового запроса для фильтрации списка.                                                                                                              |
+
 [⬆️ Вернуться наверх](#top)
 
 ## 💾 Резервное копирование БД
@@ -167,4 +168,5 @@ docker exec -it $dbContainer psql -U postgres docbox_db -c "SELECT * FROM docume
 | Контейнер db не может запуститься | Проверьте, не занят ли порт 5534 другим процессом.                                                                          |
 | Ошибка аутентификации при бэкапе  | Убедитесь, что пароль в backup_db.py совпадает с POSTGRES_PASSWORD в compose.yaml.                                          |
 | Файлы не сохраняются в uploads    | Проверьте наличие volume - ./uploads:/app/uploads в compose.yaml и права на запись в папку на хосте.                        |
+
 [⬆️ Вернуться наверх](#top)
