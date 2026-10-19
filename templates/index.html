@@ -8,11 +8,10 @@
 <body>
   <h1>DocBox — загрузка документа</h1>
 
-  <!-- Навигация -->
-  <nav style="margin-bottom: 20px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-    <a href="/" class="link-btn">Загрузить</a>
-    <span style="color: #ccc;">·</span>
-    <a href="/documents-list" class="link-btn link-btn-outline">Документы</a>
+  <nav style="margin-bottom: 1rem;">
+    <a href="/" class="link-btn nav-active">Страница загрузки</a>
+    <span style="color: #ccc; margin: 0 8px;">·</span>
+    <a href="/documents-list" class="link-btn">Документы</a>
   </nav>
 
   {% with messages = get_flashed_messages() %}

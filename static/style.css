@@ -1,66 +1,31 @@
-body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; color: #222; }
-.flash { background: #eef6ff; border-left: 4px solid #3b82f6; padding: .5rem .75rem; }
-.hint { color: #666; font-size: .9rem; }
-form { display: flex; gap: .5rem; align-items: center; margin: 1rem 0; }
-button { cursor: pointer; padding: .4rem .9rem; border-radius: 4px; border: 1px solid #3b82f6; background: #3b82f6; color: #fff; }
-
-body { max-width: 1000px; }
-nav { margin-bottom: 1rem; }
-.empty { color: #666; font-style: italic; padding: 2rem 0; text-align: center; }
-
-table { width: 100%; border-collapse: collapse; }
-th, td { padding: .5rem .75rem; border-bottom: 1px solid #e5e7eb; text-align: left; }
-th { background: #f3f4f6; font-weight: 600; }
-tbody tr:hover { background: #fafafa; }
-td.num { text-align: right; font-variant-numeric: tabular-nums; }
-td a { word-break: break-all; }
-
-button.danger { border-color: #dc2626; background: #fff; color: #dc2626; }
-button.danger:hover { background: #dc2626; color: #fff; }
-
-.doc-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    font-size: 14px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #222;
 }
 
-.doc-table thead tr {
-    background-color: #f8f9fa;
-    color: #333;
-    text-align: left;
+.flash {
+  background: #eef6ff;
+  border-left: 4px solid #3b82f6;
+  padding: .5rem .75rem;
+  margin-bottom: 1rem;
 }
 
-.doc-table th,
-.doc-table td {
-    padding: 12px 16px;
-    border: 1px solid #ccc;
+.hint {
+  color: #666;
+  font-size: .9rem;
 }
 
-/* Полосатые строки */
-.doc-table tbody tr:nth-of-type(even) {
-    background-color: #fafafa;
+form {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  margin: 1rem 0;
 }
 
-.doc-table tbody tr:hover {
-    background-color: #f1f5f9;
-}
-
-/* Выравнивание и стиль для чисел */
-.num {
-    text-align: right;
-    font-feature-settings: "tnum"; /* табличные цифры, если шрифт поддерживает */
-    color: #2c3e50;
-}
-
-/* Чуть лучше для имени файла */
-.file-name {
-    word-break: break-word;
-    max-width: 300px;
-}
-
+/* Навигация: обычные ссылки */
 .link-btn {
   display: inline-flex;
   align-items: center;
@@ -81,13 +46,136 @@ button.danger:hover { background: #dc2626; color: #fff; }
   color: #222;
 }
 
-.link-btn-outline {
+/* Активная кнопка навигации (текущая страница) */
+.nav-active {
+  font-weight: 700;
+  color: #007bff;
+  border-color: #007bff;
   background-color: transparent;
-  border-color: #dee2e6;
-  color: #495057;
 }
 
-.link-btn-outline:hover {
-  border-color: #adb5bd;
-  color: #212529;
+.nav-active:hover {
+  color: #0056b3;
+  border-color: #0056b3;
+}
+
+nav {
+  margin-bottom: 1.5rem;
+}
+
+.empty {
+  color: #666;
+  font-style: italic;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* Таблица документов */
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 2rem 0;
+  font-size: 0.95rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.doc-table th,
+.doc-table td {
+  border: 1px solid #e0e0e0;
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.doc-table th {
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: 600;
+}
+
+.doc-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.doc-table tbody tr:hover {
+  background-color: #f1f8ff;
+}
+
+.num {
+  text-align: right;
+  font-feature-settings: "tnum";
+  color: #2c3e50;
+}
+
+.file-name {
+  word-break: break-word;
+  max-width: 300px;
+}
+
+/* Кнопки действий */
+button, .danger {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: none;
+  font-size: 0.8rem;
+}
+
+button {
+  padding: .4rem .9rem;
+  border-radius: 4px;
+  border: 1px solid #3b82f6;
+  background: #3b82f6;
+  color: #fff;
+}
+
+button:hover {
+  background: #2563eb;
+}
+
+.danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.danger:hover {
+  background-color: #c82333;
+}
+
+/* Поле поиска */
+input[type="text"] {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.download-link {
+  position: relative;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.download-link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%; /* отступ сверху */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.download-link:hover::after {
+  opacity: 1;
+  visibility: visible;
 }
