@@ -76,10 +76,10 @@ def documents_list():
     q = request.args.get("q", "")
 
     documents = crud.get_by_query(q, page, per_page)
-    # Вариант B: считаем именно по фильтру
+
     total = crud.get_count_by_query(q)
 
-    total_pages = max(1, (total + per_page - 1) // per_page)  # ceil division
+    total_pages = max(1, (total + per_page - 1) // per_page)
 
     return render_template(
         "documents_list.html",
